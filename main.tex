@@ -29,6 +29,16 @@
 % Load packages
 \input{preamble/packages}
 
+% Load styles
+\input{preamble/styles}
+
+% Load commands (from the original template)
+\input{preamble/commands.tex}
+
+% Load fonts
+\input{preamble/fonts}
+
+
 % Testing layout (showframe): Uncomment to show the layout
 %\IfPackageLoaded{geometry}{\geometry{showframe}}
 
@@ -36,8 +46,16 @@
 % Other configs
 % --------------------------------------------------------------------
 
+
 %% Title, author, date
+\title{Titulo de Tesis}
+\author{Autor de la Tesis}
+
+% Define commands for title, author, date
 \makeatletter
+\let\TesisTitle\@title
+\let\TesisAuthor\@author
+\makeatother
 
 
 % --------------------------------------------------------------------
