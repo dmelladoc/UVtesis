@@ -1,0 +1,227 @@
+% !TEX encoding=UTF-8
+% !TEX program = lualatex
+% !TEX spellcheck = en-US
+
+% --------------------------------------------------------------------
+% Seleccion de paquetes
+% --------------------------------------------------------------------
+\DefineCodeSection[true]{BasePkg}
+\DefineCodeSection[true]{FontsPkg}
+\DefineCodeSection[true]{MathPkg}
+\DefineCodeSection[true]{UnitsPkg}
+\DefineCodeSection[true]{TablesPkg}
+\DefineCodeSection[true]{TextsPkg}
+\DefineCodeSection[true]{BibPkg}
+\DefineCodeSection[true]{ListsPkg}
+\DefineCodeSection[true]{LayoutPkg}
+\DefineCodeSection[true]{OtherPkg}
+% --------------------------------------------------------------------
+% Paquetes básicos
+% --------------------------------------------------------------------
+
+\BeginCodeSection{BasePkg}
+% Babel para manejo de idiomas
+\usepackage{babel}
+
+% Xcolor para manejo de colores
+\usepackage[%
+    dvipsnames, % Carga una lista de colores predefinidos
+    table,      % Permite el uso de colores en tablas
+    fixinclude,  % Corrige el problema de includegraphics con xcolor
+]{xcolor}
+
+% Graphicx para manejo de imágenes
+\usepackage{graphicx}
+% Si se carga graphicx, se carga epstopdf
+\IfPackageLoaded{graphicx}{%
+    \usepackage{epstopdf} % Convierte archivos eps a pdf
+}
+
+% Ragged2e para manejo de alineación de texto
+\usepackage{ragged2e}
+% Varwidth para manejo de anchos variables
+\usepackage{varwidth}
+
+\EndCodeSection{BasePkg}
+
+% --------------------------------------------------------------------
+% Tipografias
+% --------------------------------------------------------------------
+\BeginCodeSection{FontsPkg}
+
+% Usaremos Fontspec para manejo de tipografías en luaLaTeX
+% Ya que usaremos fuentes externas (la fuente de la Universidad)
+\usepackage{fontspec}
+
+\EndCodeSection{FontsPkg}
+
+
+% --------------------------------------------------------------------
+% Matematica
+% --------------------------------------------------------------------
+\BeginCodeSection{MathPkg}
+
+% Amsmath para manejo de matemáticas
+\usepackage[%
+    centertags,   % Centra las ecuaciones con varios elementos
+    %tbtags,      % Coloca los números de las ecuaciones en la parte superior
+    sumlimits,    % Coloca los límites de las sumatorias en la parte superior e inferior
+    %nosumlimits, % 
+    intlimits,    % Coloca los límites de las integrales en la parte superior e inferior
+    %nointlimits, % 
+    namelimits,   % Coloca los límites de las funciones en la parte superior e inferior
+    %nonamelimits,%
+    %leqno,       % Coloca los números de las ecuaciones a la izquierda
+    %reqno,       % Coloca los números de las ecuaciones a la derecha
+    fleqn,        % Coloca las ecuaciones a la izquierda con identación
+]{amsmath}
+
+\IfPackageLoaded{amsmath}{%
+    % Cargamos Mathtools para mejoras en amsmath
+    \usepackage[fixamsmath,disallowspaces]{mathtools}
+}
+
+% Unicode-math para manejo de fuentes matemáticas
+\usepackage{unicode-math} 
+
+\EndCodeSection{MathPkg}
+
+% --------------------------------------------------------------------
+% Unidades
+% --------------------------------------------------------------------
+\BeginCodeSection{UnitsPkg}
+\usepackage{siunitx}
+
+\EndCodeSection{UnitsPkg}
+
+% --------------------------------------------------------------------
+% Tablas
+% --------------------------------------------------------------------
+\BeginCodeSection{TablesPkg}
+% Booktabs para lineas de tablas
+\usepackage{booktabs} 
+
+% Multirow para celdas de tablas
+% Bigstrut para manejo de celdas grandes
+\usepackage{multirow, bigstrut}
+
+% Si se carga hyperref, se carga ltxtable
+% Ltxtable para manejo de tablas largas
+\ExecuteAfterPackage{hyperref}{%
+    \usepackage{ltxtable}
+}
+
+\EndCodeSection{TablesPkg}
+
+% --------------------------------------------------------------------
+% Texto
+% --------------------------------------------------------------------
+\BeginCodeSection{TextsPkg}
+\ExecuteAfterPackage{setspace}{%
+    % Footmisc para manejo de notas al pie
+    \usepackage[%
+        bottom, % Notas al pie al final de la página
+        stable, % Notas al pie estables
+        perpage, % Reinicia el contador de notas al pie por página
+        %para,   % Notas al pie a un lado, en un parrafo
+        %side,   % Notas al pie al margen
+        ragged,  % Alineación
+        %norule, % Sin regla
+        multiple,% Notas al pie múltiples
+        %symbol, % Notas al pie con símbolos
+    ]{footmisc} 
+}
+
+\IfDefined{endabstract}{%
+    % Abstract para manejo de resumen
+    \usepackage{abstract}
+}
+
+\EndCodeSection{TextsPkg}
+
+% --------------------------------------------------------------------
+% Bibliografia
+% --------------------------------------------------------------------
+
+\BeginCodeSection{BibPkg}
+% Biblatex para manejo de bibliografía
+% TODO: Agregar opciones para definir como vancouver
+\IfPackageLoaded{babel}{
+    \usepackage{csquotes} % Necesario para biblatex
+}
+\usepackage[%
+    style=numeric,    % Estilo de la bibliografía
+    natbib=true,      % Compatibilidad con natbib
+    backend=biber,    % Motor de la bibliografía
+    bibwarn=true,     % Advertencias de la bibliografía
+    texencoding=auto, % autodetecta la codificación de los archivos
+    bibencoding=auto, % autodetecta la codificación de la bibliografía 
+]{biblatex}
+
+\EndCodeSection{BibPkg}
+
+% --------------------------------------------------------------------
+% Listas, glosarios, etc
+% --------------------------------------------------------------------
+\BeginCodeSection{ListsPkg}
+
+\ExecuteAfterPackage{hyperref}{%
+    % Glossaries para manejo de glosarios
+    \usepackage[%
+        savewrites,            % Guarda los archivos auxiliares
+        translate=true,        % Traduce con babel
+        hyperfirst=true,       % Enlace en la primera mención
+        %toc,                  % Añade al índice
+        numberline,            % Añade número de página
+        section=section,       % Presenta por sección
+        numberedsection=false, % Por defecto no aparece numerados por seccion
+        nonumberlist,          % Sin numeración
+        counter=page,          % Numeración por página
+        sort=standard,         % Ordenamiento
+        acronym,               % Manejo de acrónimos
+        shortcuts,             % Atajos (\ac)
+    ]{glossaries}
+    % Estilos extra de glossaries
+    \usepackage{glossary-longragged}    
+}
+
+\EndCodeSection{ListsPkg}
+
+% --------------------------------------------------------------------
+% Layout
+% --------------------------------------------------------------------
+\BeginCodeSection{LayoutPkg}
+% Geometry para manejo de márgenes
+% Dedebemos cargarlo al final para evitar conflictos con otros paquetes
+\ExecuteAfterPackage{hyperref}{%
+    \usepackage{geometry}
+}
+\ExecuteAfterPackage{lastpackage}{%
+    \IfPackageNotLoaded{geometry}{%
+        \usepackage{geometry}
+    }
+}
+
+\EndCodeSection{LayoutPkg}
+
+% --------------------------------------------------------------------
+% Otros paquetes
+% --------------------------------------------------------------------
+
+\BeginCodeSection{OtherPkg}
+% Hyperref para manejo de enlaces
+\usepackage[%
+    backref=page,        % Añade enlace a la página de la cita
+    pagebackref=false,    %
+    hyperindex=true,     % Añade enlace en el índice
+    hyperfootnotes=true, % Añade enlace en las notas al pie
+    bookmarks=true,      % 
+    pdfpagelabels=true,  % set PDF page labels 
+]{hyperref}
+
+\EndCodeSection{OtherPkg}
+
+% --------------------------------------------------------------------
+% Para finalizar, detectamos el ultimo paquete con lastpackage
+% --------------------------------------------------------------------
+\usepackage{lastpackage}

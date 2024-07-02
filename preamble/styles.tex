@@ -1,0 +1,48 @@
+
+%% Definicion de Estilos
+\DefineCodeSection[true]{StyleColors}
+\DefineCodeSection[true]{StyleUnits}
+\DefineCodeSection[true]{StyleLayout}
+
+% --------------------------------------------------------------------
+% Colores
+% --------------------------------------------------------------------
+
+\BeginCodeSection{StyleColors}
+\IfMultDefined{definecolor,colorlet}{%
+    % Definicion de colores
+    % Colores UV
+    \definecolor{UVBlue}{RGB}{0, 60, 88}
+    \definecolor{UVDarkBlue}{RGB}{0, 46, 56}
+    \definecolor{UVTurquoise}{RGB}{6, 113, 126}
+}
+
+\EndCodeSection{StyleColors}
+
+% --------------------------------------------------------------------
+% Unidades
+% --------------------------------------------------------------------
+
+\BeginCodeSection{StyleUnits}
+\input{preamble/styleconfs/siunitx.tex}
+\EndCodeSection{StyleUnits}
+
+% --------------------------------------------------------------------
+% Layout
+% --------------------------------------------------------------------
+
+\BeginCodeSection{StyleLayout}
+
+\raggedbottom % Evita que el texto se distribuya uniformemente en la página
+
+\IfPackageLoaded{geometry}{%
+    \input{preamble/styleconfs/geometry.tex}
+}
+
+% Koma Layout
+\KOMAoptions{%
+    headlines=2.1, % Tamaño de la cabecera
+    cleardoublepage=empty, % Pagina en blanco despues de capitulo
+}
+
+\EndCodeSection{StyleLayout}

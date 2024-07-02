@@ -1,4 +1,4 @@
-% !TEX encoding=utf8
+% !TEX encoding=UTF-8
 % !TEX program = lualatex
 % !TEX spellcheck = en-US
 % !BIB = biber
@@ -22,6 +22,12 @@
 % --------------------------------------------------------------------
 % Preamble (Load packages, etc.)
 % --------------------------------------------------------------------
+% Initial imports and configurations
+\usepackage{codesection} % Seleccion de subsecciones de código para importar
+\usepackage{templatetools} % Herramientas de plantilla
+
+% Load packages
+\input{preamble/packages}
 
 % Testing layout (showframe): Uncomment to show the layout
 %\IfPackageLoaded{geometry}{\geometry{showframe}}
