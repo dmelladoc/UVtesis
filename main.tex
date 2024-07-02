@@ -1,0 +1,69 @@
+% !TEX encoding=utf8
+% !TEX program = lualatex
+% !TEX spellcheck = en-US
+% !BIB = biber
+
+% --------------------------------------------------------------------
+% Document Class
+% --------------------------------------------------------------------
+\documentclass[%
+    draft=true,      % Draft mode (False: final mode(images, etc.), True: draft mode)
+    % Paper Settings
+    paper=letter,    % Paper size (letter, a4, etc.)
+    paper=portrait,  % Paper orientation (portrait, landscape)
+    pagesize=auto,   % Page driver
+    % Font Settings
+    fontsize=10pt,   % Font size (10pt (default), 11pt, 12pt)
+    % Other Settings
+    version=last,    % Version of KOMA-Script)
+    spanish,         % Language (english, spanish, etc.)
+]{scrbook}
+
+% --------------------------------------------------------------------
+% Preamble (Load packages, etc.)
+% --------------------------------------------------------------------
+
+% Testing layout (showframe): Uncomment to show the layout
+%\IfPackageLoaded{geometry}{\geometry{showframe}}
+
+% --------------------------------------------------------------------
+% Other configs
+% --------------------------------------------------------------------
+
+%% Title, author, date
+\makeatletter
+
+
+% --------------------------------------------------------------------
+% Bibliography
+% --------------------------------------------------------------------
+% We use biblatex for bibliography
+
+% \IfPackageLoaded{biblatex}{%
+%     % add all .bib files here:
+%     \addbibresouce{bib/bibliography.bib}
+% }
+
+% --------------------------------------------------------------------
+% Glossary entries
+% --------------------------------------------------------------------
+% Load file with glossary of the document
+% \input{content/00-glossary}
+
+
+% --------------------------------------------------------------------
+% DOCUMENT
+% --------------------------------------------------------------------
+
+\begin{document}
+
+% --------------------------------------------------------------------
+% Frontmatter
+% --------------------------------------------------------------------
+
+% - Title page -
+\include{content/00-titlepage}
+\cleardoublepage
+
+% - Abstract -
+\end{document}
