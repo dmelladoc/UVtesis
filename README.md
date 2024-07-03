@@ -4,7 +4,6 @@ Este es el Template de tesis diseñado para el programa de Doctorado en Ciencias
 Basado en el template LaTeX thesis de [Matthias Pospiech](https://www.matthiaspospiech.de/latex/templates/thesis/).
 
 ### Elementos Pendientes
-- Bibliografia
 - Apendices
 - Configuracion del estilo
 - Agradecimientos
@@ -12,6 +11,11 @@ Basado en el template LaTeX thesis de [Matthias Pospiech](https://www.matthiaspo
 
 ## Requerimientos
 Solo ha sido probado a nivel local, para compilar estamos utilizando LuaLaTeX, por lo que inicialmente uno debiera configurar el compilador de LaTeX para esto (en overleaf en el menu, esta la opcion de usar pdflatex, xelatex y lualatex).
+
+### Algunos paquetes utilizados
+- siunitx: unidades
+- biblatex: manejo de bibliografia
+- biblatex-vancouver: Formato Vancouver para biblatex (_no cumple 100%? aproxima al estilo_)
 
 ## Metodo de uso
 ### Configuración

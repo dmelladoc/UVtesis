@@ -4,6 +4,8 @@
 \DefineCodeSection[true]{StyleUnits}
 \DefineCodeSection[true]{StyleBibliography}
 \DefineCodeSection[true]{StyleLayout}
+\DefineCodeSection[true]{Stylereflinks}
+
 
 % --------------------------------------------------------------------
 % Colores
@@ -65,3 +67,22 @@
 }
 
 \EndCodeSection{StyleLayout}
+
+% --------------------------------------------------------------------
+% Hyperlinks
+% --------------------------------------------------------------------
+
+\BeginCodeSection{Stylereflinks}    
+\input{preamble/styleconfs/hyperref.tex}
+
+\IfPackageLoaded{bookmark}{%
+    \bookmarksetup{%
+        page=1,        % Pagina de inicio
+        open=true,     % Abre el bookmark
+        openlevel=2,   % Nivel de apertura
+        depth=4,       % Profundidad
+        numbered=true, % Numerado
+    }%
+}
+
+\EndCodeSection{Stylereflinks}

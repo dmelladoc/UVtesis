@@ -142,7 +142,6 @@
 % --------------------------------------------------------------------
 % Bibliografia
 % --------------------------------------------------------------------
-
 \BeginCodeSection{BibPkg}
 % Biblatex para manejo de bibliografía
 % TODO: Agregar opciones para definir como vancouver
@@ -150,7 +149,7 @@
     \usepackage{csquotes} % Necesario para biblatex
 }
 \usepackage[%
-    style=numeric,    % Estilo de la bibliografía
+    style=vancouver,    % Estilo de la bibliografía
     natbib=true,      % Compatibilidad con natbib
     backend=biber,    % Motor de la bibliografía
     bibwarn=true,     % Advertencias de la bibliografía
@@ -218,6 +217,11 @@
     bookmarks=true,      % 
     pdfpagelabels=true,  % set PDF page labels 
 ]{hyperref}
+
+% Bookmark para manejo de marcadores para hyperref
+\IfNotDraft{%
+  \usepackage{bookmark}
+}
 
 \EndCodeSection{OtherPkg}
 
