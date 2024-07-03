@@ -5,6 +5,9 @@
 \DefineCodeSection[true]{StyleBibliography}
 \DefineCodeSection[true]{StyleLayout}
 \DefineCodeSection[true]{Stylereflinks}
+\DefineCodeSection[true]{StyleHeadFoot}
+\DefineCodeSection[true]{StyleHeadings}
+\DefineCodeSection[true]{StyleFixes}
 
 
 % --------------------------------------------------------------------
@@ -86,3 +89,101 @@
 }
 
 \EndCodeSection{Stylereflinks}
+
+% --------------------------------------------------------------------
+% Encabezado y pie de pagina
+% --------------------------------------------------------------------
+
+\BeginCodeSection{StyleHeadFoot}
+% Encabezado y pie de pagina con scrlayer-scrpage
+\input{preamble/styleconfs/scrlayer-scrpage.tex}
+\EndCodeSection{StyleHeadFoot}
+
+% --------------------------------------------------------------------
+% Cabezera y secciones
+% --------------------------------------------------------------------
+
+\BeginCodeSection{StyleHeadings}
+
+% Profundidad de numeracion de secciones
+\setcounter{secnumdepth}{2} % Numeracion de subsecciones
+
+\KOMAoptions{%
+    headings=small, % Tamaño de las cabeceras
+    numbers=noenddot, % Sin punto al final de la numeracion
+}
+
+\IfDefined{chapter}{%
+    \KOMAoptions{%
+        headings=noappendixprefix, % Sin prefijo en los apendices
+        headings=chapterprefix,    % Prefijo en los capitulos
+        headings=openright,        % Capitulos en paginas impares
+    }%    
+}%
+
+% Alineacion de los capitulos y secciones
+\renewcommand*{\raggedchapter}{\raggedleft} % Alineacion de los capitulos
+\renewcommand*{\raggedsection}{\raggedright} % Alineacion de las secciones
+
+%% Tamaño de las fuentes
+% Capitulos
+\IfDefined{chapter}{%
+    \setkomafont{chapter}{\Huge\sffamily\itshape\bfseries}
+    %\setkomafont{chapterprefix}{\Huge\sffamily\bfseries}
+}
+% Secciones
+\setkomafont{sectioning}{\sffamily\itshape\bfseries}
+
+\setkomafont{paragraph}{\rmfamily\itshape}
+\setkomafont{subparagraph}{\rmfamily}
+
+% Partes
+\setkomafont{part}{\usekomafont{sectioning}\LARGE}
+\setkomafont{partnumber}{\usekomafont{sectioning}\Huge}
+
+% Numeracion de las paginas
+\setkomafont{pageheadfoot}{\normalfont\normalcolor\small\sffamily}
+\setkomafont{pagenumber}{\normalfont\sffamily\fontshape{b}\selectfont}
+
+%% Color
+\IfDefined{color}{%
+    \addtokomafont{sectioning}{\color{UVDarkBlue}}
+    \IfDefined{chapter}{%
+        \addtokomafont{chapter}{\color{UVDarkBlue}}
+    }%
+}
+
+\EndCodeSection{StyleHeadings}
+
+
+% --------------------------------------------------------------------
+% Fixes de estilo
+% --------------------------------------------------------------------
+
+\BeginCodeSection{StyleFixes}
+
+% Numeracion de las paginas
+
+
+\makeatletter
+\@ifundefined{frontmatter}{%
+    \newcommand{\frontmatter}{%
+        \pagenumbering{roman}
+    }
+}{}
+
+\@ifundefined{mainmatter}{%
+    \newif\if@mainmatter\@mainmattertrue
+    \newcommand{\mainmatter}{%
+        \pagenumbering{arabic}%
+        \setcounter{page}{1}%
+    }
+}{}
+\@ifundefined{backmatter}{%
+    \newcommand{\backmatter}{%
+        \pagenumbering{roman}
+    }
+}{}
+\makeatother
+
+\EndCodeSection{StyleFixes}

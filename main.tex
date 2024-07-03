@@ -80,7 +80,9 @@
 % --------------------------------------------------------------------
 
 \begin{document}
-
+% Config page numbering
+\pagenumbering{alph}\setcounter{page}{1}%
+\pagestyle{empty}
 % --------------------------------------------------------------------
 % Title
 % --------------------------------------------------------------------
@@ -100,6 +102,7 @@
 % --------------------------------------------------------------------
 
 \frontmatter
+\IfPackageLoaded{scrlayer-scrpage}{\pagestyle{scrplain}}
 \IfPackageLoaded{hyperref}{\pdfbookmark[1]{\contentsname}{toc}}
 \tableofcontents
 

@@ -1,0 +1,16 @@
+\IfPackageLoaded{scrlayer-scrpage}{%
+
+    \pagestyle{scrplain}     % Pagina sin cabezera
+    
+    % Borra los estilos de pagina
+    \clearmainofpairofpagestyles
+    \clearplainofpairofpagestyles
+
+    \cfoot[\pagemark]{\pagemark} % Numero de pagina en el centro del pie de pagina
+
+    \KOMAoptions{
+        draft=false,            % Modo borrador desactivado para que no aparezca la regla de la cabezera
+        headwidth=text:0pt:0pt, % Anchura de la cabezera
+        footwidth=text:0pt:0pt, % Anchura del pie de pagina
+    }
+}

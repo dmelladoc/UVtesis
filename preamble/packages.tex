@@ -14,6 +14,7 @@
 \DefineCodeSection[true]{BibPkg}
 \DefineCodeSection[true]{ListsPkg}
 \DefineCodeSection[true]{LayoutPkg}
+\DefineCodeSection[true]{HeadFootPkg}
 \DefineCodeSection[true]{OtherPkg}
 % --------------------------------------------------------------------
 % Paquetes básicos
@@ -202,6 +203,21 @@
 }
 
 \EndCodeSection{LayoutPkg}
+
+% --------------------------------------------------------------------
+% Encabezados y pies de página
+% --------------------------------------------------------------------
+
+\BeginCodeSection{HeadFootPkg}
+\usepackage[%
+    automark,                 % Automatiza la marca de secciones
+    autooneside,              % Encabezado en una sola cara
+    pagestyleset=KOMA-Script, % Estilo de página
+    markcase=ignoreuppercase, % Ignora mayúsculas
+]{scrlayer-scrpage}
+
+\EndCodeSection{HeadFootPkg}
+
 
 % --------------------------------------------------------------------
 % Otros paquetes
