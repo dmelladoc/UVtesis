@@ -63,10 +63,10 @@
 % --------------------------------------------------------------------
 % We use biblatex for bibliography
 
-% \IfPackageLoaded{biblatex}{%
-%     % add all .bib files here:
-%     \addbibresouce{bib/bibliography.bib}
-% }
+\IfPackageLoaded{biblatex}{
+    % add all .bib files here:
+    \addbibresource{bib/example.bib}
+}
 
 % --------------------------------------------------------------------
 % Glossary entries
@@ -107,12 +107,23 @@
 % Mainmatter
 % --------------------------------------------------------------------
 \mainmatter
+
 \include{content/01-Introduccion}
 \include{content/02-MarcoTeorico}
 \include{content/03-Metodologia}
 \include{content/04-Resultados}
 \include{content/05-Discusion}
 \include{content/06-Conclusion}
+
+% Bibliography
+\IfPackageLoaded{biblatex}{%
+    \cleardoublepage
+    \phantomsection\label{sec:bibliography}
+    \printbibliography[%
+        heading=bibintoc, % Add bibliography to table of contents
+    ]
+}
+
 % --------------------------------------------------------------------
 % Backmatter
 % --------------------------------------------------------------------

@@ -1,0 +1,40 @@
+% !TeX encoding=utf8
+% !TeX spellcheck=en-US
+
+\IfPackageLoaded{biblatex}{%
+    \ExecuteBibliographyOptions{%
+        % Ordenamiento
+        sorting=nty,             % Nombre, titulo, año. Otros valores: nyt, nyvt, anyt, anyvt, ynt, ydnt, none
+        sortcase=true,           % Ordenar sensible a mayusculas
+        sortcites=false,         % Ordenar las citas en el orden en que aparecen
+        % Fechas
+        date=year,               % Formato de fecha
+        timezeros=true,          % Mostrar ceros en la fecha
+        dateabbrev=true,         % Abreviar las fechas
+        % General
+        maxbibnames=15,          % Maximo de nombres en la bibliografia
+        maxcitenames=1,          % Maximo de nombres en las citas
+        terseinits=true,         % Iniciales abreviadas
+        giveninits=true,         % 
+        uniquename=true,         % Desambiguacion de nombres
+        maxalphanames=1,         % Maximo de nombres en las citas alfabeticas
+        autopunct=true,          % Puntuacion automatica
+        language=auto,           % Idioma de la bibliografia
+        block=none,              % Separacion entre bloques
+        notetype=foot+end,       % Notas al pie y al final
+        hyperref=true,           % Enlaces
+        backref=true,            % Referencias cruzadas
+        backrefstyle=three,      % Estilo de las referencias cruzadas
+        backrefsetstyle=setonly, % 
+        indexing=false,          % Indice
+        refsection=none,         % Secciones de referencias
+        refsegment=none,         % Segmentos de referencias
+        abbreviate=true,         % Abreviar nombres
+        defernumbers=true,       % Numeracion diferida
+        punctfont=false,         % Fuente de la puntuacion
+        arxiv=abs,               % Mostrar arXiv
+        % Estilo
+        url=false,               % Mostrar URL
+        doi=true,                % Mostrar DOI
+    }
+}

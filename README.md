@@ -21,4 +21,6 @@ Algunas configuraciones se encuentran en la carpeta `preamble`, donde estan defi
 ### Archivos
 Dentro de la carpeta `elements`, se incluyen la tipografía oficial de la Universidad (Swiss721 BT), junto con el logo en formato vectorial (`.eps`)
 
+### Bibliografía
+Para la bibliografía, se utiliza `biblatex`. Los archivos .bib deben insertarse en la carpeta `bib/` y en el archivo main, debe añadirse cada archivo con `\addbibresource{bib/referencia.bib}` donde referencia.bib es el archivo.
 

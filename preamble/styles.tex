@@ -2,6 +2,7 @@
 %% Definicion de Estilos
 \DefineCodeSection[true]{StyleColors}
 \DefineCodeSection[true]{StyleUnits}
+\DefineCodeSection[true]{StyleBibliography}
 \DefineCodeSection[true]{StyleLayout}
 
 % --------------------------------------------------------------------
@@ -26,6 +27,24 @@
 \BeginCodeSection{StyleUnits}
 \input{preamble/styleconfs/siunitx.tex}
 \EndCodeSection{StyleUnits}
+
+% --------------------------------------------------------------------
+% Bibliografia
+% --------------------------------------------------------------------
+
+\BeginCodeSection{StyleBibliography}
+\input{preamble/styleconfs/biblatex.tex}
+
+% Si no se ha cargado biblatex, se carga el estilo plainnat
+\IfPackageNotLoaded{biblatex}{%
+    \bibliographystyle{plainnat}
+}
+
+\KOMAoptions{%
+    bibliography=openstyle, % Estilo de la bibliografia
+}
+
+\EndCodeSection{StyleBibliography}
 
 % --------------------------------------------------------------------
 % Layout
