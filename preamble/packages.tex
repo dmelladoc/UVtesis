@@ -10,6 +10,7 @@
 \DefineCodeSection[true]{MathPkg}
 \DefineCodeSection[true]{UnitsPkg}
 \DefineCodeSection[true]{TablesPkg}
+\DefineCodeSection[true]{FiguresPkg}
 \DefineCodeSection[true]{TextsPkg}
 \DefineCodeSection[true]{BibPkg}
 \DefineCodeSection[true]{ListsPkg}
@@ -113,6 +114,28 @@
 }
 
 \EndCodeSection{TablesPkg}
+
+
+% --------------------------------------------------------------------
+% Figuras
+% --------------------------------------------------------------------
+
+\BeginCodeSection{FiguresPkg}
+
+\usepackage{wrapfig} % Para manejo de figuras flotantes
+
+% Evita que las figuras floten entre secciones
+\usepackage[section]{placeins}
+
+% Caption permite manejo de leyendas en figuras y tablas
+\usepackage{caption}
+
+% Subcaption para manejo de subfiguras
+\IfPackageNotLoaded{subfig}{
+  \usepackage{subcaption}[2011/08/17]
+}
+
+\EndCodeSection{FiguresPkg}
 
 % --------------------------------------------------------------------
 % Texto

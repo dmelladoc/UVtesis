@@ -1,0 +1,32 @@
+\section{Figuras}
+
+En esta sección dentro del template, mostraremos algunos ejemplos. En la figura \ref{fig:ejemplo}, creada con el ambiente figure, se presenta una carta de ajuste.
+
+\begin{figure}[htb]
+    \centering
+    \includegraphics[width=0.55\textwidth,keepaspectratio]{content/images/testimage.png}
+    \caption{Carta de ajuste en televisión. Extraida desde \href{https://es.wikipedia.org/wiki/Carta_de_ajuste}{Wikipedia}}
+    \label{fig:ejemplo}
+\end{figure}
+
+
+Otra forma de presentar figuras es creando subfiguras como se muestra en la figura \ref{fig:subfiguras}.
+
+\begin{figure}[htb]
+    \begin{subfigure}[b]{0.45\linewidth}
+        \centering
+        \includegraphics[width=0.85\linewidth]{content/images/testimage.png}
+        \caption{La subfigura 1}
+        \label{fig:subfiguras:a}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.45\linewidth}
+        \centering
+        \includegraphics[width=0.85\linewidth]{content/images/testimage.png}
+        \caption{La subfigura 2}
+        \label{fig:subfiguras:b}
+    \end{subfigure}
+    \caption{Demostración de subfiguras}
+    \label{fig:subfiguras}
+\end{figure}
+
+La idea es que podamos hacer referencia a cada una de las subfiguras, la subfigura \ref{fig:subfiguras:a} y la subfigura \ref{fig:subfiguras:b}.

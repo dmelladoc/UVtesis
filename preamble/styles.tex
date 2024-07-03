@@ -3,10 +3,12 @@
 \DefineCodeSection[true]{StyleColors}
 \DefineCodeSection[true]{StyleUnits}
 \DefineCodeSection[true]{StyleBibliography}
+\DefineCodeSection[true]{StyleFigures}
 \DefineCodeSection[true]{StyleLayout}
 \DefineCodeSection[true]{Stylereflinks}
 \DefineCodeSection[true]{StyleHeadFoot}
 \DefineCodeSection[true]{StyleHeadings}
+\DefineCodeSection[true]{StyleTOC}
 \DefineCodeSection[true]{StyleFixes}
 
 
@@ -50,6 +52,26 @@
 }
 
 \EndCodeSection{StyleBibliography}
+
+% --------------------------------------------------------------------
+% Figuras
+% --------------------------------------------------------------------
+\BeginCodeSection{StyleFigures}
+
+\IfPackageLoaded{wrapfig}{%
+    \setlength{\intextsep}{0.5\baselineskip} % Espacio entre figuras y texto
+}
+
+\renewcommand{\floatpagefraction}{0.75} % Fraccion de la pagina que ocupa la figura
+\renewcommand{\textfraction}{0.1} % Fraccion de la pagina que ocupa el texto
+\renewcommand{\topfraction}{0.8} % Fraccion de la pagina que ocupa la parte superior
+\renewcommand{\bottomfraction}{0.5} % Fraccion de la pagina que ocupa la parte inferior
+\setcounter{topnumber}{3} % Numero de figuras en la parte superior
+\setcounter{bottomnumber}{2} % Numero de figuras en la parte inferior
+\setcounter{totalnumber}{5} % Numero total de figuras
+
+
+\EndCodeSection{StyleFigures}
 
 % --------------------------------------------------------------------
 % Layout
@@ -154,6 +176,56 @@
 }
 
 \EndCodeSection{StyleHeadings}
+
+% --------------------------------------------------------------------
+% Tabla de contenidos
+% --------------------------------------------------------------------
+
+\BeginCodeSection{StyleTOC}
+\setcounter{tocdepth}{3} % Profundidad de la tabla de contenidos
+\IfPackageLoaded{babel}{
+    \addto\captionsspanish{%
+        \renewcommand{\contentsname}{Índice}
+    }
+}
+
+
+\KOMAoptions{%
+    toc=indented, % Sangria en la tabla de contenidos
+}
+
+
+% Estilo de fuente de Tabla de Contenidos
+\newcommand{\fontTOC}{\sffamily\bfseries}
+
+\IfPackageNotLoaded{tocloft}{%
+    \addtokomafont{partentry}{\fontTOC\Large}
+    \addtokomafont{partentrypagenumber}{\fontTOC\Large}
+    \IfElseDefined{chapter}{%
+        \addtokomafont{chapterentry}{\fontTOC\large}
+        \addtokomafont{chapterentrypagenumber}{\fontTOC\large}
+    }{%
+        \setkomafont{sectionentry}{\fontTOC}
+        \setkomafont{sectionentrypagenumber}{\fontTOC}
+    }
+}
+
+
+\DeclareTOCStyleEntries[
+    raggedentrytext,
+    linefill=\hfill,
+    numwidth=0pt,
+    numsep=1ex,
+    dynnumwidth
+]{tocline}{chapter,section,subsection,subsubsection,paragraph,subparagraph}
+
+\DeclareTOCStyleEntries[
+    linefill=\TOCLineLeaderFill,
+    indent=0pt,
+    dynindent
+]{tocline}{section,subsection,subsubsection,paragraph,subparagraph}
+
+\EndCodeSection{StyleTOC}
 
 
 % --------------------------------------------------------------------
