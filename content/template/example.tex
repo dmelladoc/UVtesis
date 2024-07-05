@@ -1,5 +1,46 @@
-\section{Figuras}
+\section{Referencias}
+Aqui se muestra un ejemplo de algunas referencias
+\cite{godoyNamedEntityRecognition2023, torresPredictingCardiovascularRehabilitation2023}
 
+Mientras que en esta linea, mostramos como citar al autor al hacer mencion de un trabajo \citeauthor{melladoDeepLearningClassifier2023}
+
+\section{Listas y enumeraciones}
+En \LaTeX, podemos listar elementos utilizando los comandos itemize y enumerate
+
+\begin{enumerate}
+    \item Primer elemento
+    \item Segundo elemento
+    \item Tercer elemento
+\end{enumerate}
+
+\begin{itemize}
+    \item Podemos ademas sublistar agregando un itemize dentro de otro itemize
+    \begin{itemize}
+        \item Primer elemento
+        \item Segundo elemento
+        \item Tercer elemento
+    \end{itemize}
+    \item Otro elemento
+\end{itemize}
+
+
+\section{Tablas}
+En esta sección, mostraremos un ejemplo de tabla. En la tabla \ref{tab:ejemplo}, se muestra una tabla con tres columnas y tres filas. Por motivos de orden, se recomienda que las tablas sean creadas en archivos separados y luego importadas al documento principal.
+
+\begin{table}
+    \centering
+    \caption{Ejemplo de tabla}
+    \label{tab:ejemplo}
+    \input{content/tables/testtable.tex}
+\end{table}
+
+La tabla internamente utiliza el paquete booktabs para las lineas de la tabla, y el paquete siunitx para el manejo de unidades.
+\texttt{Siunitx} nos permite definir los valores con unidades, y nos permite tambien alinear los valores en la tabla.
+Junto a esto, tambien permite redondear los valores de la tabla a una resolución determinada. 
+Los valores estan predeterminados en \texttt{preamble/styleconfs/siunitx.tex}
+
+
+\section{Figuras}
 En esta sección dentro del template, mostraremos algunos ejemplos. En la figura \ref{fig:ejemplo}, creada con el ambiente figure, se presenta una carta de ajuste.
 
 \begin{figure}[htb]
