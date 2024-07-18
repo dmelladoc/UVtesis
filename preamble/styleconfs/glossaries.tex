@@ -1,0 +1,75 @@
+\IfPackageLoaded{glossaries}{%
+    \glsdisablehyper % Desactiva los enlaces de los glosarios
+
+    % Elimina el punto al final de la descripción
+    \renewcommand*{\glspostdescription}{}
+
+    % Estilo LongFancy
+    \newglossarystyle{longFancy}{%
+        \setglossarystyle{long}%
+        \renewenvironment{theglossary}
+            {%
+                \vspace*{-1\baselineskip}
+                \renewcommand{\arraystretch}{1.6}%
+                \normalfont\normalsize%
+                \centering%
+                \rowcolors{1}{tablerowcolor}{tablebodycolor}% Colores de las filas intercalados
+                \begin{longtable}{l>{\raggedright}p{\glsdescwidth}}%
+            }%        
+            {\end{longtable}}%
+        \renewcommand*{\glsgroupskip}{}%
+        \renewcommand*{\glossaryheader}{%
+            \hline\endhead%
+            \hline\endfoot%
+        }%
+    }
+    \setlength{\glsdescwidth}{0.75\textwidth}
+
+    % Estilo LongFancyheader
+    \newglossarystyle{longFancyHeader}{%
+        \setglossarystyle{longFancy}% Basado en el estilo LongFancy
+        \renewcommand*{\glossaryheader}{%
+            \hline\rowcolor{tableheadcolor}
+            \bfseries \entryname & \bfseries \descriptionname \tabularnewline
+            \hline\endhead%
+            \hline\endfoot%
+        }%
+    }
+    \setglossarystyle{longFancyHeader}
+    
+    \IfPackageLoaded{tabu}{%
+        % Estilo LongTabuFancy
+        \newglossarystyle{longtabuFancy}{%
+            \setglossarystyle{long}%
+            \renewenvironment{theglossary}%
+                {%
+                    \vspace*{-1\baselineskip}
+                    \renewcommand{\arraystretch}{1.6}%
+                    \normalfont\normalsize%
+                    \centering%
+                    \rowcolors{1}{tablerowcolor}{tablebodycolor}% Colores de las filas intercalados
+                    \begin{longtabu} to 0.95\textwidth{lX[L]}
+                }%
+                {\end{longtabu}}%
+            \renewcommand*{\glsgroupskip}{}%
+            \renewcommand*{\glossaryheader}{%
+                \hline\endhead%
+                \hline\endfoot%
+            }%
+        }
+        
+        % Estilo LongTabuFancyHeader
+        \newglossarystyle{longtabuFancyHeader}{%
+            \setglossarystyle{longtabuFancy}% Basado en el estilo LongTabuFancy
+            \renewcommand*{\glossaryheader}{%
+                \hline\rowcolor{tableheadcolor}
+                \bfseries \entryname & \bfseries \descriptionname \tabularnewline
+                \hline\endhead%
+                \hline\endfoot%
+            }%
+        }
+        \setglossarystyle{longtabuFancyHeader}
+    }
+
+    % Otros estilos
+}

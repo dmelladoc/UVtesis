@@ -5,6 +5,7 @@
 \DefineCodeSection[true]{StyleBibliography}
 \DefineCodeSection[true]{StyleFigures}
 \DefineCodeSection[true]{StyleLayout}
+\DefineCodeSection[true]{StyleIndexes}
 \DefineCodeSection[true]{Stylereflinks}
 \DefineCodeSection[true]{StyleHeadFoot}
 \DefineCodeSection[true]{StyleHeadings}
@@ -23,7 +24,13 @@
     \definecolor{UVBlue}{RGB}{0, 60, 88}
     \definecolor{UVDarkBlue}{RGB}{0, 46, 56}
     \definecolor{UVTurquoise}{RGB}{6, 113, 126}
-}
+
+    % Colores de tabla
+    \colorlet{tablebodycolor}{white!100}
+    \colorlet{tablerowcolor}{UVBlue!10}
+    \colorlet{tablesubheadcolor}{UVTurquoise!30}
+    \colorlet{tableheadcolor}{UVDarkBlue!25}
+}{}
 
 \EndCodeSection{StyleColors}
 
@@ -92,6 +99,13 @@
 }
 
 \EndCodeSection{StyleLayout}
+
+% --------------------------------------------------------------------
+% Indices
+% --------------------------------------------------------------------
+\BeginCodeSection{StyleIndexes}
+    \input{preamble/styleconfs/glossaries.tex}
+\EndCodeSection{StyleIndexes}
 
 % --------------------------------------------------------------------
 % Hyperlinks

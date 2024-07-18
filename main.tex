@@ -38,6 +38,8 @@
 % Load fonts
 \input{preamble/fonts}
 
+% Load makecmds
+\input{preamble/makecmd}
 
 % Testing layout (showframe): Uncomment to show the layout
 %\IfPackageLoaded{geometry}{\geometry{showframe}}
@@ -72,7 +74,7 @@
 % Glossary entries
 % --------------------------------------------------------------------
 % Load file with glossary of the document
-% \input{content/00-glossary}
+\input{content/ZZ-Glossary}
 
 
 % --------------------------------------------------------------------
@@ -105,6 +107,15 @@
 \IfPackageLoaded{scrlayer-scrpage}{\pagestyle{scrplain}}
 \IfPackageLoaded{hyperref}{\pdfbookmark[1]{\contentsname}{toc}}
 \tableofcontents
+
+\IfPackagesLoaded{glossaries, longtable}{%
+    \clearpage
+    \IfGlossariesStyleDefined{longFancyHeader}%
+        {\printglossary[type=\acronymtype, style=longFancyHeader, title=Lista de Acrónimos]}
+    \IfGlossariesStyleDefined{longFancyHeader}%
+        {\printglossary[type=symbolslist, style=longFancyHeader, title=Lista de Símbolos]}
+    \printglossary[style=altlist, title=Glosario]
+}
 
 \include{content/00-dedication}
 

@@ -307,3 +307,6 @@ TSWLatexianTemp*
 
 
 main.pdf
+
+# 
+*.ist  

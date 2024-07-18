@@ -1,0 +1,39 @@
+% !TeX encoding=utf8
+% !TeX spellcheck=es-CL
+% !TeX program = lualatex
+
+
+% --------------------------------------------------------------------
+% Definiciones de Acronimos
+% --------------------------------------------------------------------
+% Uso: \newacronym{acronimo}{siglas}{Descripción del acrónimo}
+
+\newacronym{ia}{IA}{Inteligencia Artificial}
+\newacronym{ml}{ML}{Machine Learning}
+\newacronym{dl}{DL}{Deep Learning}
+\newacronym{xai}{XAI}{Inteligencia Artificial Explicable}
+
+% --------------------------------------------------------------------
+% Definiciones de simbolos
+% --------------------------------------------------------------------
+% Uso: \newglossaryentry{symb:simbolo}{name={nombre},description={descripcion}, sort=simbolo, type=symbolslist}
+
+\newglossaryentry{symb:pi}{%
+    name=$\pi$,%
+    description={Constante matemática que representa la relación entre la circunferencia de un círculo y su diámetro},%
+    sort=symbolpi,%
+    type=symbolslist%
+}
+
+
+% --------------------------------------------------------------------
+% Definiciones de glosario
+% --------------------------------------------------------------------
+
+\IfDefined{newglossaryentry}{%
+    % Cada entrada se define con el comando \newglossaryentry{label}{options}
+    \newglossaryentry{glos:API}{%
+        name={Interfaz de Programación de Aplicaciones},%
+        description={Conjunto de reglas y especificaciones que las aplicaciones pueden seguir para comunicarse entre sí},%
+    }%
+}%
