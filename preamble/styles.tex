@@ -88,6 +88,11 @@
 
 \raggedbottom % Evita que el texto se distribuya uniformemente en la página
 
+\IfPackageLoaded{setspace}{
+  %\onehalfspacing    % 1,5-times spacing
+  %\doublespacing     % 2-times spacing
+}
+
 \IfPackageLoaded{geometry}{%
     \input{preamble/styleconfs/geometry.tex}
 }
@@ -96,6 +101,7 @@
 \KOMAoptions{%
     headlines=2.1, % Tamaño de la cabecera
     cleardoublepage=empty, % Pagina en blanco despues de capitulo
+    parskip=full-, % Espacio entre parrafos
 }
 
 \EndCodeSection{StyleLayout}
